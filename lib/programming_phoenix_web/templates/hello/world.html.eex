@@ -1,0 +1,1 @@
+<h1> From Template: Hello <%= String.capitalize(@name)%> </h1>
