@@ -20,7 +20,8 @@ defmodule ProgrammingPhoenix.MixProject do
         main: "chapter_1",
         logo: "logo.png",
         extras: [
-          "./lib/chapters/chapter_1/chapter_1.md"
+          "./lib/chapters/chapter_1/chapter_1.md",
+          "./lib/chapters/chapter_2/chapter_2.md"
         ],
         groups_for_modules: []
       ]
