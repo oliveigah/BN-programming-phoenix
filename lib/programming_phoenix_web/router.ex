@@ -16,8 +16,9 @@ defmodule ProgrammingPhoenixWeb.Router do
   scope "/", ProgrammingPhoenixWeb do
     pipe_through :browser
 
+    get "/users", UserController, :index
+    get "/users/:id", UserController, :show
     get "/", PageController, :index
-    get "/hello/:name", HelloController, :world
   end
 
   # Other scopes may use custom stacks.
