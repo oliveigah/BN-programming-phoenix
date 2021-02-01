@@ -22,7 +22,8 @@ defmodule ProgrammingPhoenix.MixProject do
         extras: [
           "./lib/chapters/chapter_1/chapter_1.md",
           "./lib/chapters/chapter_2/chapter_2.md",
-          "./lib/chapters/chapter_3/chapter_3.md"
+          "./lib/chapters/chapter_3/chapter_3.md",
+          "./lib/chapters/chapter_4/chapter_4.md"
         ],
         groups_for_modules: []
       ]
