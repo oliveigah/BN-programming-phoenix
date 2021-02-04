@@ -50,9 +50,45 @@ end
 
 ## 4.4 - Building Forms
 
+```elixir
+<%= form_for @changeset, Routes.user_path(@conn, :register), fn f -> %>
+  <div>
+    <%= text_input f, :name, placeholder: "Name" %>
+    <%= error_tag f, :name %>
+  </div>
+  <div>
+    <%= text_input f, :username, placeholder: "Username" %>
+    <%= error_tag f, :username %>
+  </div>
+
+  <div>
+    <%= password_input f, :password, placeholder: "Password" %>
+    <%= error_tag f, :password %>
+  </div>
+
+<%= submit "Register" %>
+
+<% end %>
+
+ def register(conn, %{"user" => user_params}) do
+    case Accounts.register_user(user_params) do
+      {:ok, user} ->
+        conn
+        |> ProgrammingPhoenixWeb.Auth.login(user)
+        |> put_flash(:info, "#{user.name} registered!")
+        |> redirect(to: Routes.user_path(conn, :index))
+
+      {:error, %Ecto.Changeset{} = changeset} ->
+        render(conn, "new.html", changeset: changeset)
+    end
+  end
+
+```
+
 - The `Ecto.Changeset` module inject on your context some useful functions to work with forms
 - `Changeset` is an Ecto structure capable of manage record changes, casts and validations
 - Usually the changeset lives inside the the model, this implies that not every business logic must live insided the context functions, although the context API is the only way to communicate with the bussiness logic, the logic it self may be spread among multiple modules which way is more suitable for the problem at hand
+- The data on the form will be forward to the submit route as parameters inside a map, the key of the map is defined by the protocol, in the case of changesets it will be the schema name. But it could be manually assigned using the option `[as: :session]`
 
 ### 4.4.1 - Why Changesets
 
