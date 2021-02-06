@@ -23,6 +23,7 @@ defmodule ProgrammingPhoenixWeb do
 
       import Plug.Conn
       import ProgrammingPhoenixWeb.Gettext
+      import ProgrammingPhoenixWeb.Auth, only: [authenticate_user: 2]
       alias ProgrammingPhoenixWeb.Router.Helpers, as: Routes
     end
   end
@@ -48,6 +49,7 @@ defmodule ProgrammingPhoenixWeb do
 
       import Plug.Conn
       import Phoenix.Controller
+      import ProgrammingPhoenixWeb.Auth, only: [authenticate_user: 2]
     end
   end
 
