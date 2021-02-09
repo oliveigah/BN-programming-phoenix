@@ -24,7 +24,8 @@ defmodule ProgrammingPhoenix.MixProject do
           "./lib/chapters/chapter_2/chapter_2.md",
           "./lib/chapters/chapter_3/chapter_3.md",
           "./lib/chapters/chapter_4/chapter_4.md",
-          "./lib/chapters/chapter_5/chapter_5.md"
+          "./lib/chapters/chapter_5/chapter_5.md",
+          "./lib/chapters/chapter_6/chapter_6.md"
         ],
         groups_for_modules: []
       ]
